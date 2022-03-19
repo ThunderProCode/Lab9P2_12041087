@@ -29,5 +29,8 @@ public class Teacher extends User {
         this.courses = courses;
     }
     
+    public void addCourse(Course course){
+        this.courses.add(course);
+    }
     
 }

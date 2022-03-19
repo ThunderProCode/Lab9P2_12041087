@@ -17,6 +17,16 @@ public class Course {
     private int secondTestId;
     private int firstTestId;
 
+    public Course(String name, int teacher_id) {
+        this.name = name;
+        this.teacher_id = teacher_id;
+        this.secondTestId = -1;
+        this.firstTestId = -1;
+        
+    }
+
+    
+    
     public Course(String name, int id, int teacher_id, int secondTestId, int firstTestId) {
         this.name = name;
         this.id = id;

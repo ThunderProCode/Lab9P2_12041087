@@ -56,6 +56,11 @@ public class LoginScreen extends javax.swing.JFrame {
         });
 
         jButton6.setText("Crear Cuenta");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,24 +115,28 @@ public class LoginScreen extends javax.swing.JFrame {
             Main.MainScreen.getjTabbedPane1().remove(0);
             Main.MainScreen.fillAdminContent();
             Main.MainScreen.setVisible(true);
+            clearScreen();
         }else {
             if(Main.MainScreen.getLoggedUser() != null){
                 User loggedUser = Main.MainScreen.getLoggedUser();
 
                 if(loggedUser instanceof Student){
                     Main.MainScreen.getjTabbedPane1().remove(1);
-                    Main.MainScreen.getjTabbedPane1().remove(2);
-
+                    Main.MainScreen.getjTabbedPane1().remove(1);
                     Main.MainScreen.fillStudentContent();
                     Main.MainScreen.fillAvailableCoursesTable();
+                    Main.MainScreen.fillOtherComboBox();
+                    clearScreen();
                 }else{
                     Main.MainScreen.getjTabbedPane1().remove(0);
-                    Main.MainScreen.getjTabbedPane1().remove(2);
+                    Main.MainScreen.getjTabbedPane1().remove(1);
                     Main.MainScreen.fillTeacherCoursesTable();
                     Main.MainScreen.fillTeacherContent();
+                    Main.MainScreen.fillComboBoxes();
+                    clearScreen();
                 }
 
-                Main.MainScreen.fillComboBoxes();
+                
                 Main.MainScreen.setVisible(true);
             }
         }
@@ -135,6 +144,12 @@ public class LoginScreen extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Main.CreateUser.getRandomNumberString();
+        Main.CreateUser.loadComboBox();
+        Main.CreateUser.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     public void logout(){
         Main.MainScreen.dispose();

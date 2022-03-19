@@ -18,6 +18,8 @@ public class Student extends User {
         this.courses = courses;
     }
     
+    
+    
     public String getDegree() {
         return degree;
     }

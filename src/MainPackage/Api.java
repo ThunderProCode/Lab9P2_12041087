@@ -17,16 +17,19 @@ public class Api {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sql);
             result.next();
-            
-            int id = result.getInt("student_id");
             String name = result.getString("student_name");
             String degree = result.getString("student_degree");
             String courses = result.getString("student_courses");
             String userPassword = result.getString("password");
-            ArrayList coursesList = getCourses(courses);
+
+            try{
+                ArrayList coursesList = getCourses(courses);
+                student = new Student(degree,name,account,userPassword,coursesList);
+            }catch(NullPointerException ex){
+                student = new Student(name,account,userPassword);
+                student.setDegree(degree);
+            }
             
-            student = new Student(degree,name,account,userPassword,coursesList);
-            student.setId(id);
             connection.close();
 
         } catch (SQLException ex) {
@@ -35,6 +38,23 @@ public class Api {
        return student;
     }
     
+    
+    public int getStudentId(int account){
+        String sql = "SELECT * FROM unitec_students WHERE acc_number="+account;
+        int id = 0;
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            result.next();
+            id = result.getInt("student_id");
+            connection.close();
+            
+        } catch (SQLException ex) {
+            System.out.println("User not found");
+        }
+        return id;
+    }
     
     public void editStudent(Student student){
         try {
@@ -161,7 +181,6 @@ public class Api {
                 
                 int courseId = result.getInt("course_id");
                 String name = result.getString("course_name");
-                String degree = result.getString("degree");
                 int teacherId = result.getInt("teacher_id");
                 int firstTestId = result.getInt("firstTestId");
                 int secondTestId = result.getInt("secondTestId");
@@ -173,7 +192,7 @@ public class Api {
             connection.close();
             
         } catch(SQLException ex){
-            ex.printStackTrace();
+            
         }
 
         return newCoursesList;
@@ -302,6 +321,10 @@ public class Api {
         
     }
     
+    public void insertTest(){
+//        String sql = ""
+    }
+    
     public Examen getTestById(int id){
         String sql = "SELECT * FROM unitec_tests WHERE Id="+id;
         Examen test = null;
@@ -361,8 +384,54 @@ public class Api {
         }
     }
     
-    public void updateTestResultTable(){
+    public void updateTestResultTable(int testId, int courseId){
         
+        
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            String sql = "SELECT * FROM unitec_courses WHERE course_id="+courseId;
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            result.next();
+            
+            if(result.getInt("firstTestId") == -1){
+                
+                String sql1 = "UPDATE unitec_courses  SET firstTestId="+ testId + " WHERE course_id="+courseId;
+                statement.executeUpdate(sql1);
+                
+            }else if( result.getInt("secondTestId") == -1 ){
+                
+                String sql2= "UPDATE unitec_courses  SET secondTestId="+ testId + " WHERE course_id="+courseId;
+                statement.executeUpdate(sql2);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Esta clase ya tiene sus dos examenes");
+            }
+            
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        
+    }
+    
+    public Examen getLastTestAdded(){
+        String sql = "SELECT TOP 1 * FROM unitec_tests ORDER BY Id DESC";
+        Examen test = null;
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            result.next();
+            int id = result.getInt("Id");
+            test = getTestById(id);
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return test;
     }
     
     public boolean isTestDone(int studentId, int courseId, int testId){
@@ -416,6 +485,128 @@ public class Api {
         } catch(SQLException ex){
             ex.printStackTrace();
         }
+    }
+    
+    public void deleteCourse(int courseId){
+        String sql = "DELETE FROM unitec_courses WHERE course_id="+courseId;
+        System.out.println(sql);
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public void addCourse(Course course, String degree){
+        degree.replaceAll(" ","");
+        String name = course.getName().replaceAll(" ","");
+        int teacherId = course.getTeacher_id();
+        int firstTestId = course.getFirstTestId();
+        int secondTestId = course.getSecondTestId();
+        String sql = "INSERT INTO unitec_courses (course_name,degree,teacher_id,firstTestId,secondTestId) VALUES("+"'" + name+ "'"+ "," + "'" + degree+ "'" + ","+teacherId+","+firstTestId+","+secondTestId+")";
+        System.out.println(sql);
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Asegurate de que los nombres no lleven espacios");
+        }
+    }
+    
+    public void addCourseToTeacher( Teacher teacher ){
+        String newCourses = "";
+        for (int i = 0; i < teacher.getCourses().size(); i++) {
+            if(i < teacher.getCourses().size() -1 ){
+                newCourses += teacher.getCourses().get(i).getId() + ",";
+            }else{
+                newCourses += teacher.getCourses().get(i).getId();
+            }
+        }
+        String sql = "UPDATE unitec_teachers SET courses="+"'"+newCourses+"'"+" WHERE teacher_id="+teacher.getId();
+        System.out.println(sql);
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Asegurate de que los nombres no lleven espacios");
+        }
+    }
+    
+    public Course getLatestAddedCourse(){
+        String sql = "SELECT TOP 1 * FROM unitec_courses ORDER BY course_id DESC";
+        Course course = null;
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            result.next();
+            
+            int id = result.getInt("course_id");
+            course = getCourseById(id);
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return course;
+    }
+    
+    public void addStudent(Student student){
+        String name = student.getName();
+        String degree = student.getDegree();
+        int account = student.getAccount();
+        String password = student.getPassword();
+        String sql = "INSERT INTO unitec_students (student_name, student_degree,acc_number, password) VALUES("+"'"+name+"'"+","+"'"+degree+"'"+","+account+","+"'"+password+"')";
+        System.out.println(sql);
+         try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        
+    }
+    
+    public void addCourseToStudent(int studentId, Student student){
+        String newCourses = "";
+        for (int i = 0; i < student.getCourses().size(); i++) {
+            if(i < student.getCourses().size() -1 ){
+                newCourses += student.getCourses().get(i).getId() + ",";
+            }else{
+                newCourses += student.getCourses().get(i).getId();
+            }
+        }
+        
+        String sql = "UPDATE unitec_students SET student_courses="+"'"+newCourses+"'"+" WHERE student_id="+studentId;
+        System.out.println(sql);
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            connection.close();
+            
+        } catch(SQLException ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Asegurate de que los nombres no lleven espacios");
+        }
+        
+
+        
     }
     
 }
