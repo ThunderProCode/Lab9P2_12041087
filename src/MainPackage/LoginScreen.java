@@ -105,22 +105,52 @@ public class LoginScreen extends javax.swing.JFrame {
         String password = jTextField4.getText();
         Main.Auth.login(account, password);
 
-        if(Main.MainScreen.getLoggedUser() != null){
-            User loggedUser = Main.MainScreen.getLoggedUser();
-            
-            if(loggedUser instanceof Student){
-                Main.MainScreen.getjTabbedPane1().remove(1);
-                Main.MainScreen.fillStudentContent();
-                Main.MainScreen.fillAvailableCoursesTable();
-            }else{
-                Main.MainScreen.getjTabbedPane1().remove(0);
-            }
-            
+        if(account == 0000 && password.equals("1234")){
+            Main.MainScreen.getjTabbedPane1().remove(0);
+            Main.MainScreen.getjTabbedPane1().remove(0);
+            Main.MainScreen.fillAdminContent();
             Main.MainScreen.setVisible(true);
+        }else {
+            if(Main.MainScreen.getLoggedUser() != null){
+                User loggedUser = Main.MainScreen.getLoggedUser();
+
+                if(loggedUser instanceof Student){
+                    Main.MainScreen.getjTabbedPane1().remove(1);
+                    Main.MainScreen.getjTabbedPane1().remove(2);
+
+                    Main.MainScreen.fillStudentContent();
+                    Main.MainScreen.fillAvailableCoursesTable();
+                }else{
+                    Main.MainScreen.getjTabbedPane1().remove(0);
+                    Main.MainScreen.getjTabbedPane1().remove(2);
+                    Main.MainScreen.fillTeacherCoursesTable();
+                    Main.MainScreen.fillTeacherContent();
+                }
+
+                Main.MainScreen.fillComboBoxes();
+                Main.MainScreen.setVisible(true);
+            }
         }
+        
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public void logout(){
+        Main.MainScreen.dispose();
+        Main.MainScreen.getjTabbedPane1().removeAll();
+        Main.MainScreen.getjTabbedPane1().add(Main.studentPanel);
+        Main.MainScreen.getjTabbedPane1().add(Main.teacherPanel);
+        Main.MainScreen.getjTabbedPane1().add(Main.adminPanel);
+        
+        clearScreen();
+    }
+    
+    public void clearScreen(){
+        jTextField3.setText("");
+        jTextField4.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */

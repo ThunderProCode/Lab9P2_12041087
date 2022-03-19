@@ -1,30 +1,33 @@
 package MainPackage;
 
+import java.util.ArrayList;
+
 public class Teacher extends User {
     
-        private int id;
-
-    /**
-     * Get the value of id
-     *
-     * @return the value of id
-     */
+    private int id;
+    private ArrayList<Course> courses = new ArrayList();
+    
+    public Teacher(int id,String name, int account, String password, ArrayList<Course> courses) {
+        super(name, account,password);
+        this.id = id;
+        this.courses = courses;
+    }
+    
     public int getId() {
         return id;
     }
-
-    /**
-     * Set the value of id
-     *
-     * @param id new value of id
-     */
+    
     public void setId(int id) {
         this.id = id;
     }
 
-    
-    public Teacher(String name, int account, String password) {
-        super(name, account,password);
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+    
     
 }

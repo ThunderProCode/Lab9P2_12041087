@@ -8,14 +8,18 @@ public class Main {
     public static Api Api = new Api();
     public static Auth Auth = new Auth();
     public static LoginScreen LoginScreen = new LoginScreen();
+    public static DoTest DoTest = new DoTest();
     
     public static JPanel studentPanel = MainScreen.getStudentPanel();
     public static JPanel teacherPanel = MainScreen.getTeacherPanel();
+    public static JPanel adminPanel = MainScreen.getAdminPanel();
+    
+    public static CrearExamen CrearExamen = new CrearExamen();
+    
     
     public static void main(String[] args) {
         
         LoginScreen.setVisible(true);
-        MainScreen.fillComboBoxes();
     }
     
 }

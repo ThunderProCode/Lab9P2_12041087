@@ -7,6 +7,10 @@ public class Student extends User {
     private String degree;
     private ArrayList<Course> courses = new ArrayList();
     private int id;
+
+    public Student(String name, int account, String password) {
+        super(name, account, password);
+    }
     
     public Student(String degree, String name, int account,String password, ArrayList courses) {
         super(name, account, password);

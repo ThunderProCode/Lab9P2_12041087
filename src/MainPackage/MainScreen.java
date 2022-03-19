@@ -33,6 +33,8 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable7 = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         studentPanel = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -60,17 +62,42 @@ public class MainScreen extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         teacherPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jButton6 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        adminPanel = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(jTable7);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,14 +112,14 @@ public class MainScreen extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Clase", "Docente"
+                "Id", "Clase", "Docente", "Nota Examen 1", "Nota Examen 2"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -231,8 +258,18 @@ public class MainScreen extends javax.swing.JFrame {
         });
 
         jToggleButton2.setText("-");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Matricular");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -243,7 +280,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 319, Short.MAX_VALUE)
+                        .addGap(0, 311, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(181, 181, 181)
                         .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,6 +315,48 @@ public class MainScreen extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Matricula", jPanel1);
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton8.setText("Realizar Examen 1");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Realizar Examen 2");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(197, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(195, 195, 195))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(244, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Clases", jPanel2);
+
         javax.swing.GroupLayout studentPanelLayout = new javax.swing.GroupLayout(studentPanel);
         studentPanel.setLayout(studentPanelLayout);
         studentPanelLayout.setHorizontalGroup(
@@ -309,22 +388,35 @@ public class MainScreen extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Clase", "Docente"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
 
         jToggleButton1.setText("Guardar cambios");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Eliminar Cuenta");
 
         jLabel6.setText("Password:");
+
+        jButton6.setText("Crear Examen");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Clases que imparte:");
+
+        jLabel12.setText("jLabel12");
 
         javax.swing.GroupLayout teacherPanelLayout = new javax.swing.GroupLayout(teacherPanel);
         teacherPanel.setLayout(teacherPanelLayout);
@@ -332,27 +424,30 @@ public class MainScreen extends javax.swing.JFrame {
             teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(teacherPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(teacherPanelLayout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToggleButton1)
-                        .addGap(255, 255, 255))
-                    .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(teacherPanelLayout.createSequentialGroup()
-                            .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel9)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(56, 56, 56)
-                            .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(44, 44, 44)
-                            .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(185, Short.MAX_VALUE))
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5)
+                            .addGap(18, 18, 18)
+                            .addComponent(jToggleButton1))
+                        .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(teacherPanelLayout.createSequentialGroup()
+                                .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(56, 56, 56)
+                                .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(86, 86, 86)
+                                .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         teacherPanelLayout.setVerticalGroup(
             teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,18 +460,71 @@ public class MainScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(teacherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jButton5))
-                .addGap(27, 27, 27))
+                    .addComponent(jButton6)
+                    .addComponent(jButton5)
+                    .addComponent(jToggleButton1))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Teacher", teacherPanel);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Clase", "Docente"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        jLabel13.setText("Todas las clases:");
+
+        jButton10.setText("Nueva Clase");
+
+        jButton11.setText("Eliminar Clase");
+
+        javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
+        adminPanel.setLayout(adminPanelLayout);
+        adminPanelLayout.setHorizontalGroup(
+            adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(adminPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addGap(205, 205, 205)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 196, Short.MAX_VALUE))
+        );
+        adminPanelLayout.setVerticalGroup(
+            adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Admin", adminPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -433,14 +581,123 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        Student loggedStudent = (Student) this.loggedUser;
+        Main.Api.deleteStudent(loggedStudent.getId());
+        JOptionPane.showMessageDialog(this, "Se ha eliminado su cuenta");
+        Main.LoginScreen.logout();
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    
+        
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+
+        DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
+        int row = jTable2.getSelectedRow();
+        
+        if(row == -1){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una clase");
+        }else{
+            model.addRow(new Object[]{ jTable2.getValueAt(row, 0),jTable2.getValueAt(row, 1),jTable2.getValueAt(row, 2)});
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Student loggedStudent = (Student) this.loggedUser;
+        ArrayList<Course> courses = new ArrayList();
+        if(loggedStudent.getCourses().size() > 0){
+            JOptionPane.showMessageDialog(this, "Usted ya tiene clases matriculadas");
+        }else {
+            DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
+            for (int i = 0; i < model.getRowCount(); i++) {
+                Course course = Main.Api.getCourseById( Integer.parseInt( jTable4.getValueAt(i,0).toString() ) );
+                courses.add(course);
+            }
+        }
+        loggedStudent.setCourses(courses);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
+
+        int row = jTable4.getSelectedRow();
+
+        if(row == -1){
+            JOptionPane.showMessageDialog(this,"Debe seleccionar una clase a eliminar");
+        }else {
+
+            model.removeRow(row);
+        }
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        
+        String name = jTextField5.getText();
+        String password = jPasswordField1.getText();
+        Teacher loggedTeacher = (Teacher) this.loggedUser;
+        
+        loggedTeacher.setName(name);
+        loggedTeacher.setPassword(password);
+        
+        Main.Api.editTeacher(loggedTeacher);
+
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       Main.CrearExamen.setVisible(true);
+       Main.CrearExamen.fillComboBoxe();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Student loggedStudent = (Student) this.loggedUser;
+
+        Course course = Main.Api.getCourseById( getCourseIdByName( jComboBox2.getSelectedItem().toString() ) );
+        
+        int id = course.getFirstTestId();
+        System.out.println("First id: " + id);
+        
+        Examen test = Main.Api.getTestById( id );
+        
+        if(Main.Api.isTestDone(loggedStudent.getId(),course.getId(), test.getId())){
+            JOptionPane.showMessageDialog(this, "Este examen solo puede hacerse una vez");
+        }else{
+            Main.DoTest.setSelectedTest(test);
+            Main.DoTest.setSelectedCourse(course);
+            Main.DoTest.fillTestContent();
+            Main.DoTest.setVisible(true);
+        }        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        Student loggedStudent = (Student) this.loggedUser;
+
+        Course course = Main.Api.getCourseById( getCourseIdByName( jComboBox2.getSelectedItem().toString() ) );
+        Examen test = Main.Api.getTestById( course.getSecondTestId() );
+        
+        if(Main.Api.isTestDone(loggedStudent.getId(), course.getId(), test.getId())){
+            JOptionPane.showMessageDialog(this, "Este examen solo puede hacerse una vez");
+        }else{
+            Main.DoTest.setSelectedCourse(course);        
+            Main.DoTest.setSelectedTest(test);
+            Main.DoTest.setSelectedCourse(course);
+            Main.DoTest.fillTestContent();
+            Main.DoTest.setVisible(true);
+        }        
+       
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private int getCourseIdByName(String name){
+        ArrayList<Course> courses = Main.Api.getAllCourses();
+        for (Course course : courses) {
+            if(course.getName().equals(name)){
+                return course.getId();
+            }
+        }
+        return -1;
+    }
     
     /**
      * @param args the command line arguments
@@ -498,12 +755,20 @@ public class MainScreen extends javax.swing.JFrame {
     public void fillComboBoxes(){
         
        ArrayList<Degree> degrees = Main.Api.getAllDegrees();
-        
+       Student loggedStudent = (Student) this.loggedUser;
+       ArrayList<Course> courses = loggedStudent.getCourses();
+       
        jComboBox1.removeAllItems();
+       jComboBox2.removeAllItems();
        
         for (Degree degree : degrees) {
             jComboBox1.addItem(degree.getName());
         }
+        
+        for (Course course : courses) {
+             jComboBox2.addItem(course.getName());
+        }
+        
         
     }
     
@@ -527,13 +792,120 @@ public class MainScreen extends javax.swing.JFrame {
     }
     
     public void fillStudentCoursesTable(ArrayList<Course> courses){
-        System.out.println("entra aca");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (Course course : courses) {
             Teacher courseTeacher = Main.Api.getTeacherById( course.getTeacher_id() );
             model.addRow(new Object[]{course.getId(),course.getName(), courseTeacher.getName()} );
         }
+        fillDoneTests();
     }
+    
+    public void fillDoneTests(){
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Student loggedStudent = (Student) this.loggedUser;
+        ArrayList<Course> courses = loggedStudent.getCourses();
+        
+        for (Course course : courses) {
+            
+            Examen test1 = Main.Api.getTestById( course.getFirstTestId() );
+            
+            if(Main.Api.isTestDone(loggedStudent.getId(), course.getId(), test1.getId())){
+                
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    
+                    if( Integer.parseInt( jTable1.getValueAt(i, 0).toString() ) == course.getId() ){
+                        
+                        model.setValueAt( Main.Api.getTestGrade(loggedStudent.getId(), course.getId(), test1.getId()) , i, 3);
+                        
+                    }
+                }
+            }else{
+                
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    
+                    if( Integer.parseInt( jTable1.getValueAt(i, 0).toString() ) == course.getId() ){
+                        
+                        model.setValueAt("No completado",i, 3);
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        for (Course course : courses) {
+            
+            Examen test2 = Main.Api.getTestById( course.getSecondTestId() );
+            
+            if(Main.Api.isTestDone(loggedStudent.getId(), course.getId(), test2.getId())){
+                System.out.println("-------------------------------------SE COMPLETO-------------------------------------");
+               
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    
+                    if( Integer.parseInt( jTable1.getValueAt(i,0).toString() ) == course.getId() ){
+                        
+                        System.out.println("AHORACA+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                        model.setValueAt(Main.Api.getTestGrade(loggedStudent.getId(), course.getId(), test2.getId()), i, 4);
+                        
+                    }
+                }
+            }else{
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    
+                    if( Integer.parseInt( jTable1.getValueAt(i, 0).toString() ) == course.getId() ){
+                        
+                        model.setValueAt("No completado",i, 4);
+                        
+                    }
+                }
+                
+            }
+            
+        }
+        
+    }
+
+    public JPanel getAdminPanel() {
+        return adminPanel;
+    }
+
+    public void setAdminPanel(JPanel adminPanel) {
+        this.adminPanel = adminPanel;
+    }
+    
+    public void fillAdminContent(){
+        DefaultTableModel model = (DefaultTableModel) jTable5.getModel();
+
+        ArrayList<Course> courses = Main.Api.getAllCourses();
+        for (Course course : courses) {
+            Teacher courseTeacher = Main.Api.getTeacherById( course.getTeacher_id() );
+            
+            model.addRow(new Object[]{course.getId(),course.getName(), courseTeacher.getName()} );
+        }
+        
+    }
+    
+    public void fillTeacherContent(){
+        Teacher loggedTeacher = (Teacher) this.loggedUser;
+
+        jTextField5.setText(loggedTeacher.getName());
+        jPasswordField1.setText(loggedTeacher.getPassword());
+        jLabel12.setText( Integer.toString( loggedTeacher.getAccount() ) );
+        
+        
+    }
+    
+    public void fillTeacherCoursesTable(){
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        Teacher loggedTeacher = (Teacher) this.loggedUser;
+        for (Course course : loggedTeacher.getCourses()) {
+            Teacher courseTeacher = Main.Api.getTeacherById( course.getTeacher_id() );
+            
+            model.addRow(new Object[]{course.getId(),course.getName(), courseTeacher.getName()} );
+        }
+
+    }
+    
     
     public void fillAvailableCoursesTable(){
         ArrayList<Course> courses = Main.Api.getAllCourses();
@@ -582,24 +954,35 @@ public class MainScreen extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel adminPanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
@@ -607,15 +990,18 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane7;
     public javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable7;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPanel studentPanel;
