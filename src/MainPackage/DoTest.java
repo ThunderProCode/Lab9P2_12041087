@@ -182,20 +182,11 @@ public class DoTest extends javax.swing.JFrame {
         Student loggedStudent = (Student) Main.MainScreen.getLoggedUser();
         Main.Api.createTestResultTable( loggedStudent.getId() , this.selectedCourse.getId(), nota, selectedTest.getId());
         Main.MainScreen.fillDoneTests();
+        clearAnsers();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void dataTest1(){
-        
-
-
-
-            
-    }
-    
-    private void dataTest2(){
-        
-    }
+ 
     
     /**
      * @param args the command line arguments
@@ -250,7 +241,13 @@ public class DoTest extends javax.swing.JFrame {
         this.selectedTest = selectedTest;
     }
     
-    
+    public void clearAnsers(){
+        jCheckBox1.setSelected(false);
+        jCheckBox2.setSelected(false);
+        jCheckBox3.setSelected(false);
+        jCheckBox4.setSelected(false);
+        jCheckBox5.setSelected(false);
+    }
     
     public void fillTestContent(){
         jLabel2.setText(selectedTest.getP1());
